@@ -95,10 +95,25 @@
   font-weight: 700;
   color: white;
   text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-  display: inline-flex;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  box-sizing: border-box;
   overflow: visible;
+  padding: 15px;
 }
+
+.rotating-text-container .overflow-hidden,
+  .rotating-text-container > * {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 
 /*
 Reglas de los queries:
@@ -114,7 +129,7 @@ Queries que debo hacer:
      Tamaño entre px: 344px - 1020px [DONE]
   
   3. Disminuir tamaño de círculos interactivos
-     Tamaño entre px: 344px - 530px
+     Tamaño entre px: 344px - 545px [IN PROGRESS]
   
   4. Botón "Regresar": Colocar debajo al centro
      Tamaño entre px: 344px - 1020x [DONE]
@@ -122,20 +137,20 @@ Queries que debo hacer:
   5. Centrar texto "¿Cuanto cuesta?"
      Tamaño entre px: 344px - 1020px [DONE]
   
-  6. Ajustar barrita que se queda como si fuera a escribir
-     Tamaño entre px: 344px - 1020px 
+  6. Texto de "¿Cuanto cuesta?": Ajustar - Bajar tamaño
+     Tamaño entre px: 344px - 780px [DONE]
   
   7. Botón "Volver a inicio": Colocar debajo de botón regresar
      Tamaño entre px: 344px - 1020px [DONE]
   
   8. Texto que se mueve: Subir arriba en el media query
-     Tamaño entre px: 344px - 1020px [IN PROGRESS]
+     Tamaño entre px: 344px - 730px [DONE]
   
   9. Diapositiva después del carrusel: Ajustar texto
-     Tamaño entre px: 344px - 1020px
+     Tamaño entre px: 344px - 1020px [DONE]
   
   10. Subir botón "Que esperamos de ti?"
-    Tamaño inferior a 545px
+      Tamaño inferior a 550px [DONE]
   
   ADICIONAL:
     1. Javascript & HTML: Añadir botón para bajar en el segundo scroll
@@ -155,25 +170,6 @@ Queries que debo hacer:
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   justify-content: center;
 }
-
-@media (max-width: 460px) {
-  .hero-title {
-    font-size: 3.5rem !important;
-  }
-  .hero-subtitle {
-    font-size: 1.4rem !important;
-  }
-}
-
-@media (max-width: 380px) {
-  .hero-title {
-    font-size: 3rem !important;
-  }
-  .hero-subtitle {
-    font-size: 1.2rem !important;
-  }
-}
-
 
 @media (max-width: 1020px) {
   .descubre-btn {     
@@ -214,11 +210,20 @@ Queries que debo hacer:
     padding: 0.8rem 1.2rem;     
     display: inline-block; 
   }
+  
+}
 
+@media (max-width: 850px) {
   .texto-mov-grande {
-    
+    transform: translateY(-10px);
+    font-size: 90px;
   }
+}
 
+@media (max-width: 780px) {
+  .cuesta-tag {
+    font-size: 2rem !important;
+  }
 }
 
 @media (max-width: 695px) {
@@ -241,7 +246,45 @@ Queries que debo hacer:
     padding: 0.8rem 1.2rem;     
     display: inline-block; 
   }
+
+  .texto-mov-grande {
+    font-size: 130px !important;
+  }
+
+  .cuesta-tag {
+    font-size: 1.7rem !important;
+  }
 }
 
-@media (max-width: 530px) {
+@media (max-width: 550px) {
+  .texto-mov-grande {
+    font-size: 140px !important;
+  }
+  .esperamos-btn {
+    margin-top: -20px !important;
+  }
+}
+
+@media (max-width: 460px) {
+  .hero-title {
+    font-size: 3.5rem !important;
+  }
+  .hero-subtitle {
+    font-size: 1.4rem !important;
+  }
+  .texto-mov-grande {
+    font-size: 120px !important;
+  }
+  .cuesta-tag {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 3rem !important;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem !important;
+  }
 }
