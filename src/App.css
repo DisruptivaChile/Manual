@@ -127,6 +127,9 @@ Queries que debo hacer:
 */
 
 @media (max-width: 450px) and (min-width: 344px) {
+  .hero-title {
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 1024px) and (min-width: 344px) {

@@ -251,6 +251,7 @@ function App() {
       {/* Botón "Descubre más" - Al nivel más alto */}
       {currentSlide === 2 && horizontalSlide === 0 && (
         <motion.div
+          className="descubre-btn"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 20 }}
@@ -291,6 +292,7 @@ function App() {
       {/* Botón "Regresar" - Esquina izquierda en slide 4 */}
       {currentSlide === 2 && horizontalSlide === 1 && (
         <motion.div
+          className="regresar-btn"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
@@ -345,7 +347,7 @@ function App() {
               />
             </div>
             <div className="content">
-              <h1>DISRUPTIVA</h1>
+              <h1 className="hero-title">DISRUPTIVA</h1>
               <BlurText
                 text="Acelera. Domina. Gana."
                 delay={500}
@@ -610,6 +612,7 @@ function App() {
                         
                         {showSlide4Text && (
                           <motion.div
+                            className="cuesta-tag"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
@@ -816,6 +819,7 @@ function App() {
                   {/* Botón "Volver a inicio" - Esquina inferior derecha */}
                   {showSlide4SecondQuestion && (
                     <motion.button
+                      className="inicio-btn"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 2 }}
