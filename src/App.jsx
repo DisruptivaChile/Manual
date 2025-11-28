@@ -353,7 +353,7 @@ function App() {
                 delay={500}
                 animateBy="words"
                 direction="top"
-                className="subtitle"
+                className="hero-subtitle"
                 initialDelay={1000}
               />
               <div className="ready-text" onClick={goToNextSlide} style={{ cursor: 'pointer' }}>
@@ -605,6 +605,7 @@ function App() {
                         style={{ width: '100%', height: '100%' }}
                       >
                         <CurvedLoop 
+                          className="texto-mov-grande"
                           marqueeText="Te ayudamos a escalar sin fricciones ✦"
                           speed={2}
                           curveAmount={0}

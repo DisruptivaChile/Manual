@@ -108,35 +108,140 @@ Reglas de los queries:
 
 Queries que debo hacer:
   1. Main page: Reducir tamaño de palabra "disruptiva"
-     Tamaño entre px: 344px - 450px
+     Tamaño entre px: 344px - 450px [DONE]
 
   2. Botón "Descubre más": Colocar debajo de círculos
-     Tamaño entre px: 344px - 1024px
+     Tamaño entre px: 344px - 1020px [DONE]
   
   3. Disminuir tamaño de círculos interactivos
      Tamaño entre px: 344px - 530px
   
   4. Botón "Regresar": Colocar debajo al centro
-     Tamaño entre px: 344px - 980px
+     Tamaño entre px: 344px - 1020x [DONE]
   
   5. Centrar texto "¿Cuanto cuesta?"
-     Tamaño entre px: 344px - 980px
+     Tamaño entre px: 344px - 1020px [DONE]
   
-  6. Botón "Volver a inicio": Colocar debajo de botón regresar
-     Tamaño entre px: 344px - 980px
+  6. Ajustar barrita que se queda como si fuera a escribir
+     Tamaño entre px: 344px - 1020px 
+  
+  7. Botón "Volver a inicio": Colocar debajo de botón regresar
+     Tamaño entre px: 344px - 1020px [DONE]
+  
+  8. Texto que se mueve: Subir arriba en el media query
+     Tamaño entre px: 344px - 1020px [IN PROGRESS]
+  
+  9. Diapositiva después del carrusel: Ajustar texto
+     Tamaño entre px: 344px - 1020px
+  
+  10. Subir botón "Que esperamos de ti?"
+    Tamaño inferior a 545px
+  
+  ADICIONAL:
+    1. Javascript & HTML: Añadir botón para bajar en el segundo scroll
+       Necesario para mejorar accesibilidad
+    2. Javascript & HTML: Añadir botón para bajar en el carrusel
+       Necesario para mejorar accesibilidad
 */
 
-@media (max-width: 450px) and (min-width: 344px) {
+.hero-title { 
+  font-size: 7rem; 
+  line-height: 1; 
+}
+
+.hero-subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  justify-content: center;
+}
+
+@media (max-width: 460px) {
   .hero-title {
-    font-size: 3rem;
+    font-size: 3.5rem !important;
+  }
+  .hero-subtitle {
+    font-size: 1.4rem !important;
   }
 }
 
-@media (max-width: 1024px) and (min-width: 344px) {
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 3rem !important;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem !important;
+  }
 }
 
-@media (max-width: 530px) and (min-width: 344px) {
+
+@media (max-width: 1020px) {
+  .descubre-btn {     
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top:85% !important;
+    text-align: center;
+    min-width: 140px;           
+    padding: 0.8rem 1.2rem;     
+    display: inline-block; 
+  }
+
+  .regresar-btn {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 72% !important;
+    text-align: center;
+    min-width: 140px;           
+    padding: 0.8rem 1.2rem;     
+    display: inline-block; 
+  }
+
+  .cuesta-tag {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center;
+    min-width: 200px;           
+    padding: 0.8rem 1.2rem;     
+    display: inline-block; 
+  }
+
+  .inicio-btn {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 70% !important;
+    text-align: center;
+    min-width: 140px;           
+    padding: 0.8rem 1.2rem;     
+    display: inline-block; 
+  }
+
+  .texto-mov-grande {
+    
+  }
+
 }
 
-@media (max-width: 980px) and (min-width: 344px) {
+@media (max-width: 695px) {
+  .regresar-btn {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 82% !important;
+    text-align: center;
+    min-width: 140px;           
+    padding: 0.8rem 1.2rem;     
+    display: inline-block; 
+  }
+
+  .inicio-btn {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 85% !important;
+    text-align: center;
+    min-width: 140px;           
+    padding: 0.8rem 1.2rem;     
+    display: inline-block; 
+  }
+}
+
+@media (max-width: 530px) {
 }
