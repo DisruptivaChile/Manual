@@ -100,4 +100,40 @@
   overflow: visible;
 }
 
+/*
+Reglas de los queries:
 
+1. Ajustar botones y textos para pantallas pequeñas
+2. Asegurar que el contenido sea legible en dispositivos móviles
+
+Queries que debo hacer:
+  1. Main page: Reducir tamaño de palabra "disruptiva"
+     Tamaño entre px: 344px - 450px
+
+  2. Botón "Descubre más": Colocar debajo de círculos
+     Tamaño entre px: 344px - 1024px
+  
+  3. Disminuir tamaño de círculos interactivos
+     Tamaño entre px: 344px - 530px
+  
+  4. Botón "Regresar": Colocar debajo al centro
+     Tamaño entre px: 344px - 980px
+  
+  5. Centrar texto "¿Cuanto cuesta?"
+     Tamaño entre px: 344px - 980px
+  
+  6. Botón "Volver a inicio": Colocar debajo de botón regresar
+     Tamaño entre px: 344px - 980px
+*/
+
+@media (max-width: 450px) and (min-width: 344px) {
+}
+
+@media (max-width: 1024px) and (min-width: 344px) {
+}
+
+@media (max-width: 530px) and (min-width: 344px) {
+}
+
+@media (max-width: 980px) and (min-width: 344px) {
+}
