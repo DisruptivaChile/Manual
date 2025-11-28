@@ -528,14 +528,16 @@ function App() {
                           width: '100%'
                         }}
                       >
-                        <Carousel
-                          baseWidth={500}
-                          autoplay={true}
-                          autoplayDelay={3000}
-                          pauseOnHover={true}
-                          loop={true}
-                          round={true}
-                        />
+                        <div className="circulos-container">
+                          <Carousel
+                            baseWidth={500}
+                            autoplay={true}
+                            autoplayDelay={3000}
+                            pauseOnHover={true}
+                            loop={true}
+                            round={true}
+                          />
+                        </div>
                       </motion.div>
                     )}
                     {currentSlide === 2 && slide3TextIndex === 2 && (
