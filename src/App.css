@@ -129,7 +129,7 @@ Queries que debo hacer:
      Tamaño entre px: 344px - 1020px [DONE]
   
   3. Disminuir tamaño de círculos interactivos
-     Tamaño entre px: 344px - 545px [IN PROGRESS]
+     Tamaño entre px: 344px - 545px [DONE]
   
   4. Botón "Regresar": Colocar debajo al centro
      Tamaño entre px: 344px - 1020x [DONE]
@@ -263,6 +263,9 @@ Queries que debo hacer:
   .esperamos-btn {
     margin-top: -20px !important;
   }
+  .circulos-container {
+    transform: scale(0.8) !important;
+  }
 }
 
 @media (max-width: 460px) {
@@ -277,6 +280,12 @@ Queries que debo hacer:
   }
   .cuesta-tag {
     font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .circulos-container {
+    transform: scale(0.6) !important;
   }
 }
 
