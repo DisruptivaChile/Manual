@@ -30,6 +30,8 @@ function App() {
   const sparksRef = useRef([]);
   const slide3TimerRef = useRef(null);
   const slide4TimerRef = useRef(null);
+  const touchStartRef = useRef({ x: 0, y: 0 });
+  const touchEndRef = useRef({ x: 0, y: 0 });
 
   const totalSlides = 3;
   const slide3Texts = [
@@ -222,6 +224,86 @@ function App() {
     return () => {
       if (container) {
         container.removeEventListener('wheel', handleWheel);
+      }
+    };
+  }, [currentSlide, totalSlides, slide3TextIndex, slide3Texts.length, horizontalSlide]);
+
+  // Soporte para gestos táctiles en dispositivos móviles
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      touchStartRef.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY
+      };
+    };
+
+    const handleTouchEnd = (e) => {
+      if (isScrolling.current) return;
+
+      touchEndRef.current = {
+        x: e.changedTouches[0].clientX,
+        y: e.changedTouches[0].clientY
+      };
+
+      const deltaX = touchStartRef.current.x - touchEndRef.current.x;
+      const deltaY = touchStartRef.current.y - touchEndRef.current.y;
+      const minSwipeDistance = 50;
+
+      isScrolling.current = true;
+
+      // Si estamos en el slide 3
+      if (currentSlide === 2) {
+        // Detectar swipe horizontal
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+          if (deltaX > 0 && horizontalSlide === 0) {
+            setHorizontalSlide(1); // Swipe izquierda -> ir a slide 4
+          } else if (deltaX < 0 && horizontalSlide === 1) {
+            setHorizontalSlide(0); // Swipe derecha -> volver a slide 3
+          }
+        }
+        // Detectar swipe vertical en slide 3
+        else if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > minSwipeDistance) {
+          if (horizontalSlide === 0) {
+            if (deltaY > 0 && slide3TextIndex < slide3Texts.length - 1) {
+              setSlide3TextIndex(prev => prev + 1); // Swipe arriba -> siguiente texto
+            } else if (deltaY < 0 && slide3TextIndex > 0) {
+              setSlide3TextIndex(prev => prev - 1); // Swipe abajo -> texto anterior
+            } else if (deltaY < 0 && slide3TextIndex === 0 && currentSlide > 0) {
+              setCurrentSlide(prev => prev - 1); // Volver al slide anterior
+              setShowDescription(false);
+            }
+          }
+        }
+      } else {
+        // Comportamiento normal de cambio de slides
+        if (Math.abs(deltaY) > minSwipeDistance) {
+          if (deltaY > 0 && currentSlide < totalSlides - 1) {
+            setCurrentSlide(prev => prev + 1); // Swipe arriba -> siguiente slide
+            if (currentSlide + 1 === 2) {
+              setSlide3TextIndex(0);
+            }
+          } else if (deltaY < 0 && currentSlide > 0) {
+            setCurrentSlide(prev => prev - 1); // Swipe abajo -> slide anterior
+            setShowDescription(false);
+          }
+        }
+      }
+
+      setTimeout(() => {
+        isScrolling.current = false;
+      }, 1000);
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('touchstart', handleTouchStart, { passive: true });
+      container.addEventListener('touchend', handleTouchEnd, { passive: true });
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener('touchstart', handleTouchStart);
+        container.removeEventListener('touchend', handleTouchEnd);
       }
     };
   }, [currentSlide, totalSlides, slide3TextIndex, slide3Texts.length, horizontalSlide]);
